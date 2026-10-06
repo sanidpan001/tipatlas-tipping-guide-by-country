@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TipAtlas — Tipping Etiquette Guide by Country + Smart Bill Calculator</title>
+<meta name="description" content="TipAtlas: tipping etiquette by country for 60+ destinations across restaurants, taxis, hotels, bars and tours — plus a smart bill calculator, cash-vs-card guidance, don't-tip alerts and a printable multi-country cheat sheet.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#0f1e2e; --gold:#fbbf24; --teal:#2dd4bf; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ink); color:#e7eef7; font-family:'Inter',system-ui,sans-serif; }
+  .font-display{ font-family:'Fraunces',serif; }
+  .atlas-grid{
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(251,191,36,.08), transparent 42%),
+      radial-gradient(circle at 85% 78%, rgba(45,212,191,.07), transparent 40%),
+      linear-gradient(rgba(251,191,36,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(251,191,36,.045) 1px, transparent 1px);
+    background-size:auto,auto,44px 44px,44px 44px;
+  }
+  .route-dash{ background-image:linear-gradient(90deg, rgba(45,212,191,.55) 55%, transparent 45%); background-size:12px 2px; background-repeat:repeat-x; height:2px; }
+  .stamp{ border:1.5px dashed rgba(251,191,36,.55); }
+  .card-hover{ transition:transform .25s ease, box-shadow .25s ease; }
+  .card-hover:hover{ transform:translateY(-3px); box-shadow:0 14px 34px -14px rgba(251,191,36,.35); }
+  .tab-active{ background:var(--gold)!important; color:#0f1e2e!important; }
+  input,select{ color-scheme:dark; }
+  details.faq summary{ cursor:pointer; list-style:none; }
+  details.faq summary::-webkit-details-marker{ display:none; }
+  details.faq[open] summary .faq-plus{ transform:rotate(45deg); }
+  .faq-plus{ transition:transform .2s ease; }
+  @media print{
+    .no-print{ display:none!important; }
+    body{ background:#fff!important; color:#111!important; }
+    .print-sheet{ background:#fff!important; color:#111!important; border:2px solid #111!important; }
+    .print-sheet *{ color:#111!important; }
+  }
+</style>
+</head>
+<body id="top" class="atlas-grid min-h-screen">
+<!-- ================= STICKY HEADER ================= -->
+<header class="no-print sticky top-0 z-50 border-b border-amber-400/20" style="background:rgba(15,30,46,.92);backdrop-filter:blur(10px)">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2.5">
+      <svg width="34" height="34" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#fbbf24" stroke-width="2.5"/>
+        <path d="M20 4 L24 20 L20 36 L16 20 Z" fill="#2dd4bf"/>
+        <path d="M4 20 L20 16 L36 20 L20 24 Z" fill="#fbbf24"/>
+        <circle cx="20" cy="20" r="3.2" fill="#0f1e2e" stroke="#fbbf24" stroke-width="1.6"/>
+      </svg>
+      <span class="font-display text-2xl font-extrabold tracking-tight"><span style="color:#fbbf24">Tip</span><span style="color:#2dd4bf">Atlas</span></span>
+    </a>
+    <nav class="flex items-center gap-5 text-sm font-semibold">
+      <a href="#top" class="text-slate-200 hover:text-amber-300 transition">Home</a>
+      <a href="https://fixoraa.tech" class="text-slate-200 hover:text-amber-300 transition">More Tools</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= TOP AD ================= -->
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="mx-auto max-w-6xl px-4 sm:px-6 pb-10">
+
+  <!-- ============ HERO ============ -->
+  <section class="no-print pt-8 pb-6 text-center">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.14em] stamp text-amber-300 mb-5">
+      <span class="w-2 h-2 rounded-full bg-teal-300 animate-pulse"></span> Unlimited Free Usage
+    </div>
+    <h1 class="font-display text-4xl sm:text-5xl font-extrabold leading-tight">Tipping etiquette, <span style="color:#fbbf24">mapped</span> for <span style="color:#2dd4bf">every border</span>.</h1>
+    <p class="mt-4 max-w-2xl mx-auto text-slate-300 text-base sm:text-lg">Search any of <strong class="text-amber-300">64 countries</strong> for tipping norms across restaurants, taxis, hotels, bars and tours — then calculate the exact tip with the smart bill calculator.</p>
+    <div class="route-dash w-40 mx-auto mt-6"></div>
+  </section>
+
+  <!-- ============ TOOL: SEARCH + ETIQUETTE CARD ============ -->
+  <section class="no-print grid lg:grid-cols-5 gap-6 mt-4">
+    <div class="lg:col-span-2 rounded-2xl p-6 border border-amber-400/25" style="background:rgba(251,191,36,.05)">
+      <h2 class="font-display text-2xl font-bold text-amber-300 mb-1">1 · Find a country</h2>
+      <p class="text-sm text-slate-400 mb-4">Type a country name — guidance is baked in from public knowledge.</p>
+      <input id="country-search" type="text" list="country-list" placeholder="e.g. Japan, France, Thailand…" autocomplete="off"
+        class="w-full rounded-xl px-4 py-3 bg-[#0a1626] border border-teal-300/30 placeholder-slate-500 text-slate-100 focus:outline-none focus:border-amber-300">
+      <datalist id="country-list"></datalist>
+      <div id="search-results" class="mt-3 flex flex-wrap gap-2"></div>
+      <div class="mt-5">
+        <p class="text-xs uppercase tracking-[0.14em] text-slate-400 mb-2">Browse by region</p>
+        <div id="region-chips" class="flex flex-wrap gap-2"></div>
+      </div>
+      <div id="region-list" class="mt-3 grid grid-cols-2 gap-2"></div>
+    </div>
+
+    <div class="lg:col-span-3">
+      <div id="etiquette-card" class="rounded-2xl border border-teal-300/25 p-6 min-h-[420px]" style="background:rgba(45,212,191,.05)">
+        <div class="h-full flex flex-col items-center justify-center text-center py-14 text-slate-400">
+          <svg width="72" height="72" viewBox="0 0 40 40" fill="none" class="opacity-40 mb-4"><circle cx="20" cy="20" r="18" stroke="#2dd4bf" stroke-width="2"/><path d="M20 4 L24 20 L20 36 L16 20 Z" fill="#2dd4bf" opacity=".6"/><path d="M4 20 L20 16 L36 20 L20 24 Z" fill="#fbbf24" opacity=".6"/></svg>
+          <p class="text-lg font-semibold text-slate-300">Pick a country to reveal its tipping map</p>
+          <p class="text-sm mt-1">Restaurants · Taxis · Hotels · Bars · Tours — plus cash-vs-card guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOOL: BILL CALCULATOR ============ -->
+  <section class="no-print mt-10 rounded-2xl border border-amber-400/25 p-6 sm:p-8" style="background:rgba(251,191,36,.05)">
+    <h2 class="font-display text-2xl font-bold text-amber-300 mb-1">2 · Smart bill calculator</h2>
+    <p class="text-sm text-slate-400 mb-5">Enter your bill — TipAtlas applies that country's real tipping norm automatically.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <label class="block">
+        <span class="text-xs uppercase tracking-wider text-slate-400">Bill amount</span>
+        <input id="bill-amount" type="number" min="0" step="0.01" placeholder="100.00" class="mt-1 w-full rounded-xl px-4 py-3 bg-[#0a1626] border border-teal-300/30 text-slate-100 focus:outline-none focus:border-amber-300">
+      </label>
+      <label class="block">
+        <span class="text-xs uppercase tracking-wider text-slate-400">Country</span>
+        <select id="bill-country" class="mt-1 w-full rounded-xl px-4 py-3 bg-[#0a1626] border border-teal-300/30 text-slate-100 focus:outline-none focus:border-amber-300"></select>
+      </label>
+      <label class="block">
+        <span class="text-xs uppercase tracking-wider text-slate-400">Service</span>
+        <select id="bill-category" class="mt-1 w-full rounded-xl px-4 py-3 bg-[#0a1626] border border-teal-300/30 text-slate-100 focus:outline-none focus:border-amber-300">
+          <option value="restaurants">Restaurants</option>
+          <option value="taxis">Taxis &amp; rides</option>
+          <option value="hotels">Hotels</option>
+          <option value="bars">Bars &amp; cafés</option>
+          <option value="tours">Tours &amp; guides</option>
+        </select>
+      </label>
+      <label class="block">
+        <span class="text-xs uppercase tracking-wider text-slate-400">Tax % (optional)</span>
+        <input id="tax-pct" type="number" min="0" step="0.1" placeholder="0" class="mt-1 w-full rounded-xl px-4 py-3 bg-[#0a1626] border border-teal-300/30 text-slate-100 focus:outline-none focus:border-amber-300">
+      </label>
+    </div>
+    <div class="mt-4 flex flex-wrap items-center gap-4">
+      <div class="flex rounded-xl overflow-hidden border border-teal-300/30 text-sm font-semibold" role="group" aria-label="Tip base">
+        <button id="mode-pre" class="tab-active px-5 py-2.5 text-slate-200">Tip on pre-tax bill</button>
+        <button id="mode-post" class="px-5 py-2.5 text-slate-200">Tip on post-tax bill</button>
+      </div>
+      <button id="calc-btn" class="px-8 py-2.5 rounded-xl font-bold text-[#0f1e2e] card-hover" style="background:#fbbf24">Calculate tip</button>
+    </div>
+    <div id="tip-result" class="mt-5 hidden rounded-xl border border-teal-300/30 p-5" style="background:rgba(45,212,191,.06)"></div>
+  </section>
+
+  <!-- ============ TOOL: DON'T TIP ALERTS ============ -->
+  <section class="no-print mt-10">
+    <h2 class="font-display text-2xl font-bold text-amber-300 mb-1">3 · "Don't tip here" alerts</h2>
+    <p class="text-sm text-slate-400 mb-4">In these countries tipping can confuse staff or even offend — the calculator applies a 0% norm automatically.</p>
+    <div id="dont-tip-list" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </section>
+
+  <!-- ============ TOOL: ITINERARY CHEAT SHEET ============ -->
+  <section class="mt-10">
+    <div class="no-print rounded-2xl border border-teal-300/25 p-6 sm:p-8" style="background:rgba(45,212,191,.05)">
+      <h2 class="font-display text-2xl font-bold text-teal-300 mb-1">4 · Multi-country itinerary cheat sheet</h2>
+      <p class="text-sm text-slate-400 mb-4">Add every country on your trip, generate a one-page cheat sheet, and print it for your wallet.</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input id="cheat-search" type="text" list="country-list" placeholder="Add a country…" autocomplete="off"
+          class="flex-1 rounded-xl px-4 py-3 bg-[#0a1626] border border-amber-300/30 placeholder-slate-500 text-slate-100 focus:outline-none focus:border-amber-300">
+        <button id="cheat-add-btn" class="px-6 py-3 rounded-xl font-bold text-[#0f1e2e] card-hover" style="background:#2dd4bf">Add</button>
+      </div>
+      <div id="cheat-countries" class="mt-3 flex flex-wrap gap-2"></div>
+      <div class="mt-4 flex flex-wrap gap-3">
+        <button id="cheat-generate-btn" class="px-6 py-2.5 rounded-xl font-bold text-[#0f1e2e] card-hover" style="background:#fbbf24">Generate cheat sheet</button>
+        <button id="cheat-print-btn" class="px-6 py-2.5 rounded-xl font-bold border border-teal-300/50 text-teal-200 card-hover">Print / Save PDF</button>
+      </div>
+    </div>
+    <div id="cheat-sheet-wrap" class="hidden mt-6">
+      <div id="cheat-sheet-table" class="print-sheet rounded-2xl border border-amber-400/30 p-6 overflow-x-auto" style="background:#0a1626"></div>
+      <p class="no-print text-xs text-slate-500 mt-2">Guidance only — norms shift with cities and venues. Verify locally before you travel.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= BOTTOM AD ================= -->
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SEO ARTICLE ================= -->
+<article id="seo-article" class="mx-auto max-w-6xl px-4 sm:px-6 pb-12 text-slate-300 leading-relaxed">
+  <h2 class="font-display text-3xl font-bold text-amber-300 pt-6 mb-4">The complete guide to tipping etiquette by country</h2>
+  <p>Tipping is one of the few travel skills where doing the right thing in one country can be a genuine insult in another. In the United States, leaving less than 18 percent at a restaurant can feel like short-changing the person who served you. In Japan, leaving any tip at all can create an awkward chase down the street as the waiter tries to return your "forgotten" money. Between those two extremes sits a whole planet of local customs — service charges baked into the bill, cash-only traditions, card terminals with tip buttons, and countries where a few coins on the table speak louder than a percentage ever could. This guide explains tipping etiquette by country in plain language, so you can walk into any restaurant, taxi, hotel, bar or tour in 64 destinations and know exactly what to do.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Why tipping rules change at every border</h3>
+  <p>Tipping exists for different reasons in different places. In North America, it is effectively part of the wage: servers earn a lower base pay and tips make up the difference, which is why the percentages are the highest in the world. In much of continental Europe, a service charge is written into law or into the menu price, so the tip is a small bonus rather than a salary top-up. In Japan, South Korea and China, tipping was never part of the economic bargain at all — good service is considered a matter of professional pride, and offering extra money can imply that the worker needs charity. Understanding the "why" makes the numbers easy to remember: where tips are wages, tip generously; where service is included, tip lightly; where tipping was never customary, do not tip at all.</p>
+  <p>The second thing to know is the difference between a service charge and a tip. A service charge is money the business keeps (or distributes however it likes); a tip you hand to a person reaches that person. When a bill in Paris says "service compris," the 15 percent is already handled — anything extra is pure kindness. When a bill in Brazil lists "serviço" at 10 percent, that is the tip, and adding another 10 percent means you paid double. TipAtlas marks these cases clearly in every country card so you never double-tip by accident.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Tipping in Japan: the world's most famous no-tip zone</h3>
+  <p>Few search queries are as common as "tipping in Japan," and the answer is refreshingly simple: do not do it. In Japan, exceptional service is the baseline, not something purchased with extra money. Leaving coins or notes on the table can confuse staff, and in traditional inns and restaurants it may even be taken as an insult — as if you believe the workers cannot do their jobs properly without a bribe. Taxi drivers will return overpaid change to the yen. Hotel porters will bow and decline. Tour guides consider their fee complete.</p>
+  <p>So how do you show gratitude in Japan? The traditional gesture is a small wrapped gift, called omiyage, given to someone who went out of their way for you — your ryokan host, for instance. A sincere thank-you, a deep bow, and a positive review carry more weight than any cash. South Korea follows a similar logic: tipping is not customary, upscale restaurants add a service charge, and offered tips may be politely refused. Mainland China is the same — tipping is not part of the culture and can create awkwardness, although Hong Kong and Macau commonly add 10 percent service charges. TipAtlas flags all three with a prominent "don't tip here" alert, and the bill calculator automatically applies a zero-percent norm so you never calculate a tip you should not pay.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">How much to tip in Europe: a region of small, smart tips</h3>
+  <p>"How much to tip in Europe" is a trickier question than it looks, because Europe is not one tipping culture — it is about a dozen of them. The good news is that almost everywhere on the continent, the amounts are modest and the stakes are low. France includes 15 percent service by law, so rounding up or adding 5 to 10 percent for genuinely great service is plenty. Italy adds a coperto cover charge to the bill, which means extra tipping is optional; a euro or two for exceptional service is generous. Spain, Portugal and Greece sit in the 5 to 10 percent band, and locals often simply round up the bill.</p>
+  <p>Germany and Austria have their own ritual: you tell the server the total including your tip while paying — "Stimmt so" (keep the change) is the classic phrase — and you hand the money directly rather than leaving it on the table. In Scandinavia the expectations fall even further. Sweden and Norway accept 5 to 10 percent for good service, Finland and Denmark are satisfied with simple rounding, and Iceland barely tips at all: service charges are built into prices and nobody expects extra. Eastern Europe is the exception that proves the rule, with Poland, Czechia, Hungary and Croatia clustering around a clean 10 percent. The United Kingdom and Ireland sit at 10 to 12.5 percent, but with a critical habit to build: always check whether a service charge is already printed on the bill, because in London and Dublin it usually is.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">North America: where the tip is part of the paycheck</h3>
+  <p>The United States has the highest tipping expectations on Earth, and they keep creeping upward. Eighteen to 20 percent at restaurants is the current norm, 10 to 15 percent for taxis, a dollar or two per drink at bars, and 10 to 20 percent for tour guides. Housekeeping gets two to five dollars per night. Canada mirrors these numbers closely. Mexico is gentler — 10 to 15 percent at restaurants, known as the propina — but with a trap for visitors: the propina is often added to the bill already, so check before tipping twice. The single most useful habit in North America is reading the bill line by line before adding anything.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">The Middle East and Africa: cash, small notes, and baksheesh</h3>
+  <p>Across the Middle East, 10 percent is the number to memorize. The United Arab Emirates, Saudi Arabia, Qatar, Israel and Jordan all cluster around it, though Dubai and Doha restaurants frequently add a service charge, so the check-the-bill habit applies here too. In Egypt, tipping shades into baksheesh — small cash payments woven through daily service life — and keeping small-denomination notes on you is a genuine travel skill. Morocco and South Africa sit at 10 to 15 percent, while Kenya and Tanzania add a layer Americans will recognize from safari brochures: tipping guides, drivers and lodge staff 10 to 15 percent is customary, and on a Kilimanjaro trek the crew traditionally shares a pooled tip at the end. Nigeria keeps things modest at 5 to 10 percent.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Asia beyond Japan: service charges and the plus-plus trap</h3>
+  <p>Southeast Asia loves its service charges. Thailand, Indonesia, Malaysia, the Philippines and Sri Lanka routinely add 10 percent at restaurants — and then menus display prices with a cryptic "++", meaning service charge plus tax are both added on top. Singapore is the cleanest case of all: 10 percent service charge plus goods-and-services tax, and no further tipping expected anywhere. India sits at about 10 percent, but city restaurants increasingly add a service charge, so the bill-check habit travels well here too. Vietnam and Cambodia are the region's friendly outliers: tipping is a newer custom, small amounts are warmly appreciated, and a 10 to 15 percent tip for a tour guide is genuinely generous.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Latin America and the Caribbean: read the servicio line</h3>
+  <p>Brazil, Chile and Colombia commonly add 10 percent to the restaurant bill — in Brazil it is labeled "serviço," and it is the tip, full stop. Argentina expects about 10 percent but adds a cubierto cover charge that is not the tip, so the two should not be confused. Peru keeps it simple at 10 percent. Costa Rica is unique: a 10 percent service charge is added by law, literally called the impuesto de servicio, so no extra tip is expected at restaurants. Cuba runs on cash and small discretionary tips, while Jamaica and the Bahamas lean higher at 10 to 15 percent, with the Bahamas using 15 percent as its standard number. Australia and New Zealand close out the map as the relaxed end of the spectrum: a 10 percent restaurant tip in Australia is a generous bonus rather than a duty, and in New Zealand tipping is barely part of the culture at all.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Cash vs card: the detail most guides skip</h3>
+  <p>Knowing the percentage is only half the battle — the other half is getting the money to the right person. In Japan, Germany, Mexico, India, Egypt and much of Southeast Asia, cash is the reliable route: card terminals often lack a tip option, and even where they have one, the money may never reach the individual worker. In Scandinavia and the Netherlands the opposite is true — societies are nearly cashless, and the polite move is to add the tip on the card terminal when paying. France and Italy sit in the cash camp: small coins and notes handed directly are the tradition. Every TipAtlas country card includes cash-vs-card guidance, because a 15 percent tip that disappears into a company's revenue is not really a tip at all.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">The five services, decoded</h3>
+  <p>TipAtlas tracks five categories because each has its own logic. Restaurants carry the highest percentages and the most variation, from 20 percent in the US to zero in Japan. Taxis are usually handled by rounding up the fare — a universal gesture that works from Berlin to Bangkok. Hotels are about fixed small amounts: a couple of dollars, euros or pounds per night for housekeeping, and a per-bag tip for the bellhop. Bars range from a dollar a drink in the US to nothing at all across much of Europe and Asia. Tours and guides are the most consistently tipped category worldwide: about 10 percent almost everywhere, rising to 15 or 20 percent for private, full-day, safari or trekking guides. Learn those five patterns and you can improvise gracefully anywhere.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Using the smart bill calculator</h3>
+  <p>The calculator above does the remembering for you. Enter your bill, pick the country and the service, and TipAtlas applies that destination's real tipping norm — including the don't-tip countries, where it applies zero percent and tells you why. The optional tax field and the pre-tax/post-tax toggle handle a subtle American debate: purists tip on the pre-tax subtotal, while many diners tip on the final total. Both are socially acceptable; the toggle simply shows you both numbers so you can choose. For hotel stays, enter the nightly rate and read the fixed-amount guidance in the result note — percentages matter less than the per-night convention there.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Build a cheat sheet before multi-country trips</h3>
+  <p>Border-hopping trips are where tipping knowledge breaks down fastest — the norms you learned in Thailand will betray you in Japan, and European habits will leave American servers underpaid. The itinerary cheat sheet compresses every country on your route into a single printable page: the five-category percentages, the don't-tip flags, and a one-line reminder per destination. Print it, fold it into your passport wallet, and you will never again stand at a foreign cash register doing anxious mental math. Frequent travelers keep one per trip and update it as routes change.</p>
+  <h3 class="font-display text-2xl font-bold text-teal-300 mt-8 mb-3">Verify locally: guidance, not gospel</h3>
+  <p>Every norm on this page is baked in from widely published public knowledge, and it is marked as guidance for a reason. Tipping customs drift: tourist districts often expect more than residential neighborhoods, inflation nudges percentages upward over the years, and individual venues set their own policies. Treat TipAtlas as your starting point — then verify locally by asking your hotel concierge, watching what locals do, or simply reading the bill carefully. The two habits that prevent nearly every tipping mistake in the world are checking for a service charge before adding anything, and carrying small-denomination cash in the local currency. Master those, and the percentages take care of themselves.</p>
+</article>
+
+<!-- ================= FAQS ================= -->
+<section class="mx-auto max-w-6xl px-4 sm:px-6 pb-10">
+  <h2 class="font-display text-3xl font-bold text-amber-300 mb-5">Frequently asked questions</h2>
+  <div class="space-y-3">
+    <details class="faq rounded-xl border border-teal-300/25 p-4" style="background:rgba(45,212,191,.05)">
+      <summary class="flex items-center justify-between font-semibold text-slate-100">Is tipping in Japan really rude?<span class="faq-plus text-2xl text-amber-300 leading-none">+</span></summary>
+      <p class="mt-2 text-slate-300 text-sm leading-relaxed">It can be. In Japan, superb service is the professional standard, not something bought with extra money — staff may chase you to return a "forgotten" tip. Show thanks with a sincere thank-you, a bow, or a small wrapped gift (omiyage) instead of cash.</p>
+    </details>
+    <details class="faq rounded-xl border border-teal-300/25 p-4" style="background:rgba(45,212,191,.05)">
+      <summary class="flex items-center justify-between font-semibold text-slate-100">How much should I tip in Europe?<span class="faq-plus text-2xl text-amber-300 leading-none">+</span></summary>
+      <p class="mt-2 text-slate-300 text-sm leading-relaxed">Most of continental Europe expects 5–10%: France includes 15% service by law, Italy adds a coperto cover charge, and Germany prefers you state the rounded total while paying. Eastern Europe clusters around 10%, the UK and Ireland around 10–12.5% — always check whether a service charge is already on the bill.</p>
+    </details>
+    <details class="faq rounded-xl border border-teal-300/25 p-4" style="background:rgba(45,212,191,.05)">
+      <summary class="flex items-center justify-between font-semibold text-slate-100">Should I tip on the pre-tax or post-tax bill?<span class="faq-plus text-2xl text-amber-300 leading-none">+</span></summary>
+      <p class="mt-2 text-slate-300 text-sm leading-relaxed">Etiquette purists tip on the pre-tax subtotal, since tax is not service. In practice both are socially acceptable — the difference on a normal bill is small. TipAtlas's calculator has a toggle so you can see both numbers and choose.</p>
+    </details>
+    <details class="faq rounded-xl border border-teal-300/25 p-4" style="background:rgba(45,212,191,.05)">
+      <summary class="flex items-center justify-between font-semibold text-slate-100">Is it better to tip in cash or by card?<span class="faq-plus text-2xl text-amber-300 leading-none">+</span></summary>
+      <p class="mt-2 text-slate-300 text-sm leading-relaxed">Cash is the safer choice in most of the world — card-terminal tips do not always reach the individual worker, and many countries' terminals lack a tip option entirely. The exceptions are near-cashless societies like Sweden, Norway and the Netherlands, where adding the tip on the terminal is the norm.</p>
+    </details>
+    <details class="faq rounded-xl border border-teal-300/25 p-4" style="background:rgba(45,212,191,.05)">
+      <summary class="flex items-center justify-between font-semibold text-slate-100">What does "service charge" mean on my bill?<span class="faq-plus text-2xl text-amber-300 leading-none">+</span></summary>
+      <p class="mt-2 text-slate-300 text-sm leading-relaxed">A service charge is money the business collects — it may or may not reach your server — while a tip you hand to a person reaches that person. If your bill shows "service compris," "serviço," or a 10–15% service line, the tip is already handled and adding more means double-tipping.</p>
+    </details>
+    <details class="faq rounded-xl border border-teal-300/25 p-4" style="background:rgba(45,212,191,.05)">
+      <summary class="flex items-center justify-between font-semibold text-slate-100">Which countries should I never tip in?<span class="faq-plus text-2xl text-amber-300 leading-none">+</span></summary>
+      <p class="mt-2 text-slate-300 text-sm leading-relaxed">Japan, South Korea and mainland China are the big three where tipping is not customary and can cause confusion or offense. Iceland, Singapore and New Zealand also expect little to nothing, since service charges are built into prices.</p>
+    </details>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is tipping in Japan really rude?","acceptedAnswer":{"@type":"Answer","text":"It can be. In Japan, superb service is the professional standard, not something bought with extra money — staff may chase you to return a 'forgotten' tip. Show thanks with a sincere thank-you, a bow, or a small wrapped gift (omiyage) instead of cash."}},
+    {"@type":"Question","name":"How much should I tip in Europe?","acceptedAnswer":{"@type":"Answer","text":"Most of continental Europe expects 5–10%: France includes 15% service by law, Italy adds a coperto cover charge, and Germany prefers you state the rounded total while paying. Eastern Europe clusters around 10%, the UK and Ireland around 10–12.5% — always check whether a service charge is already on the bill."}},
+    {"@type":"Question","name":"Should I tip on the pre-tax or post-tax bill?","acceptedAnswer":{"@type":"Answer","text":"Etiquette purists tip on the pre-tax subtotal, since tax is not service. In practice both are socially acceptable — the difference on a normal bill is small. TipAtlas's calculator has a toggle so you can see both numbers and choose."}},
+    {"@type":"Question","name":"Is it better to tip in cash or by card?","acceptedAnswer":{"@type":"Answer","text":"Cash is the safer choice in most of the world — card-terminal tips do not always reach the individual worker, and many countries' terminals lack a tip option entirely. The exceptions are near-cashless societies like Sweden, Norway and the Netherlands, where adding the tip on the terminal is the norm."}},
+    {"@type":"Question","name":"What does 'service charge' mean on my bill?","acceptedAnswer":{"@type":"Answer","text":"A service charge is money the business collects — it may or may not reach your server — while a tip you hand to a person reaches that person. If your bill shows 'service compris,' 'serviço,' or a 10–15% service line, the tip is already handled and adding more means double-tipping."}},
+    {"@type":"Question","name":"Which countries should I never tip in?","acceptedAnswer":{"@type":"Answer","text":"Japan, South Korea and mainland China are the big three where tipping is not customary and can cause confusion or offense. Iceland, Singapore and New Zealand also expect little to nothing, since service charges are built into prices."}}
+  ]
+}
+</script>
+
+<!-- ================= LIB (inlined at build) ================= -->
+<script id="v3-tipatlas-tipping-guide-by-country-lib">
+/* TipAtlas — v3-tipatlas-tipping-guide-by-country lib (PURE: no DOM access) */
+/* Baked-in tipping etiquette dataset + calculator logic. Guidance only — verify locally. */
+'use strict';
+
+/* Category entry: [loPct, hiPct, note]. lo/hi may be null when the norm is a fixed amount (note carries it). */
+function C(lo, hi, note) { return { lo: lo, hi: hi, note: note }; }
+
+/* r=restaurants x=taxis h=hotels b=bars u=tours/guides */
+const TIP_DB = [
+{code:"US",name:"United States",region:"North America",cur:"USD",sym:"$",
+ r:C(15,20,"Waitstaff rely on tips; 18–20% is the norm, more for excellent service."),
+ x:C(10,15,"10–15% of the metered fare; a little extra if the driver helps with luggage."),
+ h:C(null,null,"$2–$5 per night for housekeeping; $1–$2 per bag for the bellhop."),
+ b:C(15,20,"$1–2 per drink, or 15–20% of the tab."),
+ u:C(10,20,"10–20% of the tour price for the guide."),
+ cash:"Cash tips are preferred by most staff; cards are widely accepted and usually offer a tip line.",
+ dontTip:false,alert:"",
+ note:"Tipping is a major part of service wages here — skipping the tip really matters."},
+{code:"CA",name:"Canada",region:"North America",cur:"CAD",sym:"$",
+ r:C(15,20,"15–20% is standard, very much like the US."),
+ x:C(10,15,"10–15% of the fare."),
+ h:C(null,null,"C$2–$5 per night for housekeeping; C$1–$2 per bag for the bellhop."),
+ b:C(15,20,"C$1–2 per drink, or 15–20% of the tab."),
+ u:C(10,20,"10–20% of the tour price for the guide."),
+ cash:"Cash is appreciated; cards with a tip option are common everywhere.",
+ dontTip:false,alert:"",
+ note:"Norms closely follow the US; provinces do not change the etiquette."},
+{code:"MX",name:"Mexico",region:"North America",cur:"MXN",sym:"$",
+ r:C(10,15,"10–15% (propina); check the bill — it is often added already."),
+ x:C(null,null,"Round up the metered fare; agree on the price first in non-metered taxis."),
+ h:C(null,null,"A few pesos per night for housekeeping; tip the bellhop per bag."),
+ b:C(10,15,"10–15% if no service charge is on the bill."),
+ u:C(10,15,"10–15% of the tour price."),
+ cash:"Cash is king for tips — many card terminals cannot add a gratuity.",
+ dontTip:false,alert:"",
+ note:"Always check whether 'propina' is already on the bill before tipping twice."},
+{code:"GB",name:"United Kingdom",region:"Europe",cur:"GBP",sym:"£",
+ r:C(10,12.5,"10–12.5% if no service charge is shown; it usually is, so check first."),
+ x:C(null,null,"Round up to the nearest pound, or 10% for a longer ride."),
+ h:C(null,null,"£1–£2 per night for housekeeping; tip porters per bag."),
+ b:C(null,null,"Not expected at the bar — tipping a pound for table service is a nice touch."),
+ u:C(10,10,"Around 10% for a good guide."),
+ cash:"Cards work fine, but cash is still the most reliable way to tip a person directly.",
+ dontTip:false,alert:"",
+ note:"An 'optional' service charge on the bill means the tip is already handled."},
+{code:"FR",name:"France",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"15% service compris is included by law; leave 5–10% extra only for great service."),
+ x:C(null,null,"Round up the fare; 5–10% for exceptional help."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up a euro or two; nothing expected at the counter."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Small coins and notes go far here; card tips often never reach the staff.",
+ dontTip:false,alert:"",
+ note:"'Service compris' means you already paid the tip — extra is genuinely optional."},
+{code:"IT",name:"Italy",region:"Europe",cur:"EUR",sym:"€",
+ r:C(0,5,"A coperto (cover charge) is already on the bill; leave a small tip only for exceptional service."),
+ x:C(null,null,"Round up to the nearest euro."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Nothing is expected at the counter; tip a little for table service."),
+ u:C(5,10,"5–10% for guides."),
+ cash:"Cash in small notes; card terminals rarely have a tip option.",
+ dontTip:false,alert:"",
+ note:"Coperto is not a tip for the waiter — but it does mean extra tipping is optional."},
+{code:"ES",name:"Spain",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"5–10% is generous; locals often just round up."),
+ x:C(null,null,"Round up; 5–10% on airport runs."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up with small change — nothing more expected."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is still the reliable way; card tipping is hit-or-miss.",
+ dontTip:false,alert:"",
+ note:"Tipping is modest here — matching American percentages would be excessive."},
+{code:"DE",name:"Germany",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"5–10%; say 'Stimmt so' (keep the change) and hand cash directly to the server."),
+ x:C(5,10,"5–10% or round up."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up the bill — the classic German way."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash culture: always tip in cash, handed to the person — leaving money on the table is less common.",
+ dontTip:false,alert:"",
+ note:"Hand the tip to the server while paying — do not leave it on the table."},
+{code:"NL",name:"Netherlands",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"5–10% is generous; service is included and tipping is optional."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up; nothing expected."),
+ u:C(null,null,"A small tip of a few euros for a great guide."),
+ cash:"The Netherlands is nearly cashless — ask before trying to tip in cash.",
+ dontTip:false,alert:"",
+ note:"A service charge is included, so any tip is a genuine bonus."},
+{code:"BE",name:"Belgium",region:"Europe",cur:"EUR",sym:"€",
+ r:C(0,10,"A 10% service charge is usually included; round up for good service."),
+ x:C(null,null,"The fare includes service; round up if you like."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up small change."),
+ u:C(null,null,"A few euros for a good guide."),
+ cash:"Cash for small tips; card tipping options are rare.",
+ dontTip:false,alert:"",
+ note:"The included service charge means tipping is entirely at your discretion."},
+{code:"CH",name:"Switzerland",region:"Europe",cur:"CHF",sym:"Fr ",
+ r:C(5,10,"Service is included by law; rounding up 5–10% is polite for good service."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A few francs per night for housekeeping."),
+ b:C(null,null,"Round up to the nearest franc."),
+ u:C(5,10,"5–10% for guides."),
+ cash:"Cash is easy, but card terminals sometimes allow a small tip too.",
+ dontTip:false,alert:"",
+ note:"Everything already includes service — extra tipping is a compliment, not a duty."},
+{code:"AT",name:"Austria",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"5–10%; tell the waiter the total including tip when paying."),
+ x:C(10,10,"About 10% or round up."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up the bill."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Tell the server the rounded total when paying by card — otherwise tip in cash.",
+ dontTip:false,alert:"",
+ note:"Like Germany, hand the tip to the server rather than leaving it on the table."},
+{code:"GR",name:"Greece",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"5–10% is standard; locals leave it in cash on the table."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up or leave small change."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash, left on the table, is the traditional way for restaurants.",
+ dontTip:false,alert:"",
+ note:"A small cash tip left on the table is the classic Greek gesture."},
+{code:"PT",name:"Portugal",region:"Europe",cur:"EUR",sym:"€",
+ r:C(5,10,"5–10% is generous; service is included so tipping is optional."),
+ x:C(5,10,"5–10% or round up."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up small change."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is the reliable route; card tipping is not always possible.",
+ dontTip:false,alert:"",
+ note:"Tourism has nudged norms up — 10% is now common in tourist areas."},
+{code:"IE",name:"Ireland",region:"Europe",cur:"EUR",sym:"€",
+ r:C(10,12.5,"10–12.5% if no service charge is listed."),
+ x:C(null,null,"Round up to the nearest euro."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Not customary at the bar."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash works; card tip options are appearing but cash is surer.",
+ dontTip:false,alert:"",
+ note:"Check for a service charge first — many Dublin restaurants add one."},
+{code:"SE",name:"Sweden",region:"Europe",cur:"SEK",sym:"kr ",
+ r:C(5,10,"5–10% or round up; service is included."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A few kronor per night for housekeeping."),
+ b:C(null,null,"Round up; nothing expected."),
+ u:C(null,null,"A small tip for an outstanding guide."),
+ cash:"Nearly cashless society — add the tip on the card terminal when paying.",
+ dontTip:false,alert:"",
+ note:"Swedes tip modestly; anything above 10% is unusually generous."},
+{code:"NO",name:"Norway",region:"Europe",cur:"NOK",sym:"kr ",
+ r:C(5,10,"5–10% for good service; included otherwise."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A few kroner for housekeeping."),
+ b:C(null,null,"Round up; nothing expected."),
+ u:C(null,null,"A small tip for a great guide."),
+ cash:"Cards everywhere — enter the tip on the terminal.",
+ dontTip:false,alert:"",
+ note:"With Norwegian prices, even 5% is a meaningful tip."},
+{code:"DK",name:"Denmark",region:"Europe",cur:"DKK",sym:"kr ",
+ r:C(0,5,"Service is included; rounding up is plenty."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"Not expected."),
+ b:C(null,null,"Not expected."),
+ u:C(null,null,"Not expected, though appreciated."),
+ cash:"Cards dominate; tipping is genuinely rare here.",
+ dontTip:false,alert:"",
+ note:"Denmark has some of Europe's lowest tipping expectations."},
+{code:"FI",name:"Finland",region:"Europe",cur:"EUR",sym:"€",
+ r:C(0,5,"Service is included; round up if the service was great."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"Not expected."),
+ b:C(null,null,"Round up; nothing expected."),
+ u:C(null,null,"Not expected."),
+ cash:"Card-first country; small tips go on the terminal.",
+ dontTip:false,alert:"",
+ note:"A tip here is a compliment, never an obligation."},
+{code:"IS",name:"Iceland",region:"Europe",cur:"ISK",sym:"kr ",
+ r:C(0,0,"Not expected — service charge is included in prices."),
+ x:C(0,0,"Not expected."),
+ h:C(0,0,"Not expected."),
+ b:C(0,0,"Not expected."),
+ u:C(null,null,"Optional; a small tip for an outstanding guide."),
+ cash:"Almost entirely cashless; tipping is simply not part of the culture.",
+ dontTip:false,alert:"",
+ note:"Iceland is one of the world's easiest countries for tippers: almost never expected."},
+{code:"PL",name:"Poland",region:"Europe",cur:"PLN",sym:"zł ",
+ r:C(10,10,"About 10% is standard in restaurants."),
+ x:C(10,10,"About 10% or round up."),
+ h:C(null,null,"A few złoty per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is common for tips; card terminals may allow a tip too.",
+ dontTip:false,alert:"",
+ note:"10% is the simple rule of thumb across services."},
+{code:"CZ",name:"Czechia",region:"Europe",cur:"CZK",sym:"Kč ",
+ r:C(10,10,"About 10% is standard."),
+ x:C(10,10,"About 10% or round up."),
+ h:C(null,null,"A few koruna per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Tell the server the rounded total when paying; cash is straightforward.",
+ dontTip:false,alert:"",
+ note:"Say the total including your tip out loud when paying the server."},
+{code:"HU",name:"Hungary",region:"Europe",cur:"HUF",sym:"Ft ",
+ r:C(10,15,"10–15%; a service charge is often already on the bill — check first."),
+ x:C(10,10,"About 10%."),
+ h:C(null,null,"A few hundred forint per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is preferred; say the rounded total when paying by card.",
+ dontTip:false,alert:"",
+ note:"Budapest restaurants often add a service fee — look before tipping twice."},
+{code:"HR",name:"Croatia",region:"Europe",cur:"EUR",sym:"€",
+ r:C(10,10,"About 10% is standard."),
+ x:C(null,null,"Round up, or 10% for longer rides."),
+ h:C(null,null,"€1–€2 per night for housekeeping."),
+ b:C(null,null,"Round up."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash in euros; card tipping is inconsistent.",
+ dontTip:false,alert:"",
+ note:"Croatia adopted the euro — tips in euros are the norm now."},
+{code:"TR",name:"Turkey",region:"Middle East",cur:"TRY",sym:"₺",
+ r:C(10,15,"10–15%; check for a service charge first."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping; tip the bellhop per bag."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is strongly preferred for tips; card tipping is rare.",
+ dontTip:false,alert:"",
+ note:"Tipping in cash (lira) is the reliable route everywhere."},
+{code:"RU",name:"Russia",region:"Europe",cur:"RUB",sym:"₽",
+ r:C(10,10,"About 10% is standard."),
+ x:C(10,10,"About 10% or round up."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is the usual way; card tipping options vary.",
+ dontTip:false,alert:"",
+ note:"10% is the easy rule across services."},
+{code:"UA",name:"Ukraine",region:"Europe",cur:"UAH",sym:"₴",
+ r:C(10,10,"About 10% is standard."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is simplest; confirm the venue accepts cards at all.",
+ dontTip:false,alert:"",
+ note:"Keep small-denomination notes handy for tips."},
+{code:"GE",name:"Georgia",region:"Middle East",cur:"GEL",sym:"₾",
+ r:C(10,10,"About 10%; a service charge is sometimes added — check."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (lari) is preferred for tips.",
+ dontTip:false,alert:"",
+ note:"Georgian hospitality is legendary — a 10% tip is warmly received."},
+/* ---- Asia ---- */
+{code:"JP",name:"Japan",region:"Asia",cur:"JPY",sym:"¥",
+ r:C(0,0,"Do NOT tip — it can confuse or offend; superb service is the standard."),
+ x:C(0,0,"Do not tip; the fare is exact."),
+ h:C(0,0,"Do not tip hotel staff."),
+ b:C(0,0,"Do not tip at bars."),
+ u:C(0,0,"Do not tip guides; a small gift is the traditional thank-you."),
+ cash:"Japan is cash-friendly, but tips are NOT part of the culture — even in cash.",
+ dontTip:true,alert:"DO NOT TIP in Japan — tipping can be seen as rude or insulting. Excellent service is already included in the price.",
+ note:"If you want to show thanks, a small wrapped gift (omiyage) is the respectful gesture."},
+{code:"KR",name:"South Korea",region:"Asia",cur:"KRW",sym:"₩",
+ r:C(0,0,"Not customary — a service charge is often included; tipping can be refused."),
+ x:C(0,0,"Not expected."),
+ h:C(0,0,"Not expected; high-end hotels may add a service charge."),
+ b:C(0,0,"Not expected."),
+ u:C(null,null,"Not expected; a small tip for a private guide is optional."),
+ cash:"Cards are universal; tips are simply not part of the culture.",
+ dontTip:true,alert:"Tipping is NOT customary in South Korea and may be politely refused — do not insist.",
+ note:"Service charges at upscale places replace tipping entirely."},
+{code:"CN",name:"China",region:"Asia",cur:"CNY",sym:"¥",
+ r:C(0,0,"Not customary; it can cause confusion."),
+ x:C(0,0,"Not expected."),
+ h:C(null,null,"Not expected; high-end international hotels may accept a small tip."),
+ b:C(0,0,"Not expected."),
+ u:C(null,null,"Not expected, though a small tip for a private guide is increasingly accepted."),
+ cash:"Mobile payments dominate; tipping is not part of the culture.",
+ dontTip:true,alert:"Tipping is NOT customary in mainland China — offering one can create awkwardness.",
+ note:"Hong Kong and Macau differ slightly: 10% service charges are common there."},
+{code:"TH",name:"Thailand",region:"Asia",cur:"THB",sym:"฿",
+ r:C(10,10,"About 10% or loose change; a service charge is often already added."),
+ x:C(null,null,"Round up the metered fare."),
+ h:C(null,null,"A small amount per night for housekeeping; tip the bellhop per bag."),
+ b:C(null,null,"Loose change is fine."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (baht) is preferred for tips; card tipping is uncommon.",
+ dontTip:false,alert:"",
+ note:"Check for a '++' (plus service charge and tax) before adding more."},
+{code:"VN",name:"Vietnam",region:"Asia",cur:"VND",sym:"₫",
+ r:C(null,null,"Not traditional, but a small tip is appreciated in tourist areas."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount for housekeeping."),
+ b:C(null,null,"Loose change is fine."),
+ u:C(10,15,"10–15% for guides is generous and appreciated."),
+ cash:"Cash (dong) for tips; card tipping is rare.",
+ dontTip:false,alert:"",
+ note:"Tipping is a newer custom here — small amounts go a long way."},
+{code:"ID",name:"Indonesia",region:"Asia",cur:"IDR",sym:"Rp ",
+ r:C(5,10,"5–10%; a service charge is often already added."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(5,10,"5–10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (rupiah) for tips; card tipping is uncommon.",
+ dontTip:false,alert:"",
+ note:"Bali restaurants almost always add a service charge — check first."},
+{code:"MY",name:"Malaysia",region:"Asia",cur:"MYR",sym:"RM ",
+ r:C(0,10,"A 10% service charge is usually added; extra tipping is optional."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Not expected beyond any service charge."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash for tips; card tipping options are rare.",
+ dontTip:false,alert:"",
+ note:"Look for '++' on the menu — that means service charge and tax are added."},
+{code:"SG",name:"Singapore",region:"Asia",cur:"SGD",sym:"S$",
+ r:C(0,0,"A 10% service charge plus GST is added; extra tipping is not expected."),
+ x:C(null,null,"Round up the fare."),
+ h:C(0,0,"Service charge is included."),
+ b:C(0,0,"Service charge is included."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cards are king; cash tips are unnecessary almost everywhere.",
+ dontTip:false,alert:"",
+ note:"Singapore is refreshingly simple: the bill already includes everything."},
+{code:"PH",name:"Philippines",region:"Asia",cur:"PHP",sym:"₱",
+ r:C(0,10,"A 10% service charge is often added; tip extra only for great service."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Loose change is fine."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (pesos) for tips; card tipping is uncommon.",
+ dontTip:false,alert:"",
+ note:"Check for the service charge — it is very common in Manila."},
+{code:"IN",name:"India",region:"Asia",cur:"INR",sym:"₹",
+ r:C(10,10,"About 10%; check whether a service charge is already added."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping; tip the bellhop per bag."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash is still the surest way to tip a person; UPI/card tips rarely reach staff.",
+ dontTip:false,alert:"",
+ note:"Service charges are common in cities — always check the bill first."},
+{code:"LK",name:"Sri Lanka",region:"Asia",cur:"LKR",sym:"Rs ",
+ r:C(10,10,"About 10%; a service charge is often already added."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (rupees) for tips.",
+ dontTip:false,alert:"",
+ note:"Tourist-area restaurants almost always add the service charge."},
+{code:"NP",name:"Nepal",region:"Asia",cur:"NPR",sym:"Rs ",
+ r:C(10,10,"About 10%; a service charge is often already added."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,15,"10–15% for trekking guides and porters is customary."),
+ cash:"Cash (rupees) for tips — essential on treks.",
+ dontTip:false,alert:"",
+ note:"On treks, tipping guides and porters at the end is expected and deeply appreciated."},
+{code:"KH",name:"Cambodia",region:"Asia",cur:"KHR",sym:"៛",
+ r:C(null,null,"Not traditional, but small tips are appreciated."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Loose change is fine."),
+ u:C(10,15,"10–15% for guides."),
+ cash:"Cash — US dollars are widely used alongside riel.",
+ dontTip:false,alert:"",
+ note:"Small US-dollar bills are perfect for tipping here."},
+{code:"MV",name:"Maldives",region:"Asia",cur:"MVR",sym:"Rf ",
+ r:C(0,0,"A 10% service charge is added at resorts; no extra expected."),
+ x:C(null,null,"Not applicable on most islands; round up where taxis exist."),
+ h:C(0,0,"Service charge is included at resorts."),
+ b:C(0,0,"Service charge is included."),
+ u:C(10,10,"Around 10% for dive and excursion guides."),
+ cash:"Resorts bill everything to the room; cash tips for excursion staff are welcome.",
+ dontTip:false,alert:"",
+ note:"At resorts the service charge covers it — tip only excursion crews directly."},
+/* ---- Middle East ---- */
+{code:"AE",name:"United Arab Emirates",region:"Middle East",cur:"AED",sym:"د.إ ",
+ r:C(10,15,"10–15%; a service charge is often already added — check."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,15,"10–15% where bars exist."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (dirhams) for tips; card tipping is possible but cash is surer.",
+ dontTip:false,alert:"",
+ note:"Dubai restaurants very often add a service charge — look before tipping twice."},
+{code:"SA",name:"Saudi Arabia",region:"Middle East",cur:"SAR",sym:"﷼ ",
+ r:C(10,10,"About 10% is standard."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Alcohol is prohibited; tip about 10% at cafés for great service."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (riyals) for tips.",
+ dontTip:false,alert:"",
+ note:"A 10% tip at restaurants is the simple rule."},
+{code:"QA",name:"Qatar",region:"Middle East",cur:"QAR",sym:"QR ",
+ r:C(10,10,"About 10%; check for a service charge first."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Bars are limited; tip about 10% where service is charged."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (riyals) for tips.",
+ dontTip:false,alert:"",
+ note:"Doha restaurants often add a service charge — check the bill."},
+{code:"IL",name:"Israel",region:"Middle East",cur:"ILS",sym:"₪",
+ r:C(12,15,"12–15% is standard, often added to the bill — check."),
+ x:C(10,15,"10–15% of the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,15,"10–15%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (shekels) for tips; card tipping is possible.",
+ dontTip:false,alert:"",
+ note:"Many restaurants add the tip automatically — look before paying twice."},
+{code:"JO",name:"Jordan",region:"Middle East",cur:"JOD",sym:"JD ",
+ r:C(10,10,"About 10%; a service charge is often added."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (dinars) for tips.",
+ dontTip:false,alert:"",
+ note:"Petra-area restaurants usually include the service charge."},
+/* ---- Africa ---- */
+{code:"EG",name:"Egypt",region:"Africa",cur:"EGP",sym:"E£ ",
+ r:C(10,15,"10–15%; a service charge is often added — check first. Baksheesh culture applies."),
+ x:C(null,null,"Agree the fare first, then round up."),
+ h:C(null,null,"A small amount per night for housekeeping; tip porters per bag."),
+ b:C(10,10,"About 10%."),
+ u:C(10,15,"10–15% for guides."),
+ cash:"Cash (pounds) — small notes for baksheesh are essential.",
+ dontTip:false,alert:"",
+ note:"Keep small notes ready: tipping is woven into daily service life here."},
+{code:"MA",name:"Morocco",region:"Africa",cur:"MAD",sym:"DH ",
+ r:C(10,10,"About 10% is standard."),
+ x:C(null,null,"Round up the fare; agree on price in non-metered taxis."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (dirhams) for tips.",
+ dontTip:false,alert:"",
+ note:"10% at restaurants is the easy rule across the country."},
+{code:"ZA",name:"South Africa",region:"Africa",cur:"ZAR",sym:"R ",
+ r:C(10,15,"10–15% is standard."),
+ x:C(10,10,"About 10%."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides and rangers."),
+ cash:"Cash (rand) for tips; card tipping is possible but cash is surer.",
+ dontTip:false,alert:"",
+ note:"15% is common in cities like Cape Town and Johannesburg."},
+{code:"KE",name:"Kenya",region:"Africa",cur:"KES",sym:"KSh ",
+ r:C(10,10,"About 10% is standard."),
+ x:C(10,10,"About 10%."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,15,"10–15% for safari guides is customary."),
+ cash:"Cash (shillings) for tips; M-Pesa is used for payments but tips stay cash.",
+ dontTip:false,alert:"",
+ note:"Safari tipping is a real custom — budget for guides and lodge staff."},
+{code:"TZ",name:"Tanzania",region:"Africa",cur:"TZS",sym:"TSh ",
+ r:C(10,10,"About 10% is standard."),
+ x:C(10,10,"About 10%."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,15,"10–15% for safari and Kilimanjaro guides is customary."),
+ cash:"Cash for tips; US dollars are also widely accepted for tips.",
+ dontTip:false,alert:"",
+ note:"Kilimanjaro crews traditionally share a pooled tip at the trek's end."},
+{code:"NG",name:"Nigeria",region:"Africa",cur:"NGN",sym:"₦",
+ r:C(5,10,"5–10% is appreciated."),
+ x:C(null,null,"Agree the fare first; a small extra is kind."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Loose change to small amounts."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (naira) for tips.",
+ dontTip:false,alert:"",
+ note:"Tipping is modest but growing, especially in Lagos and Abuja."},
+/* ---- Americas ---- */
+{code:"AR",name:"Argentina",region:"South America",cur:"ARS",sym:"$",
+ r:C(10,10,"About 10%; a service charge is sometimes added — check."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (pesos) — card tipping is rare.",
+ dontTip:false,alert:"",
+ note:"Buenos Aires restaurants often add a cubierto (cover charge) — that is not the tip."},
+{code:"BR",name:"Brazil",region:"South America",cur:"BRL",sym:"R$",
+ r:C(10,10,"10% (serviço) is usually added — check before tipping more."),
+ x:C(10,10,"About 10% or round up."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"10% is usually included."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (reais) for extra tips; card tipping is uncommon.",
+ dontTip:false,alert:"",
+ note:"The 'serviço' line on the bill IS the tip — do not double-tip."},
+{code:"CL",name:"Chile",region:"South America",cur:"CLP",sym:"$",
+ r:C(10,10,"10% is usually added to the bill."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"10% is usually included."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (pesos) for tips.",
+ dontTip:false,alert:"",
+ note:"The 10% on the bill is the tip — extra is optional."},
+{code:"CO",name:"Colombia",region:"South America",cur:"COP",sym:"$",
+ r:C(10,10,"10% is usually added and is technically voluntary."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (pesos) for tips.",
+ dontTip:false,alert:"",
+ note:"You can legally decline the added 10%, but almost nobody does."},
+{code:"PE",name:"Peru",region:"South America",cur:"PEN",sym:"S/ ",
+ r:C(10,10,"About 10% is standard."),
+ x:C(null,null,"Agree the fare first, then round up."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,10,"About 10%."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (soles) for tips.",
+ dontTip:false,alert:"",
+ note:"10% is the simple rule, from Lima to Machu Picchu."},
+{code:"CR",name:"Costa Rica",region:"Central America",cur:"CRC",sym:"₡",
+ r:C(0,0,"A 10% service charge is added BY LAW — no extra expected."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(0,0,"The 10% is included by law."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cash (colones) for tips; the restaurant tip is already law-mandated.",
+ dontTip:false,alert:"",
+ note:"'Impuesto de servicio' on the bill is the tip — required by law."},
+{code:"CU",name:"Cuba",region:"Central America",cur:"CUP",sym:"$",
+ r:C(null,null,"Small discretionary tips are appreciated."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(null,null,"Loose change is fine."),
+ u:C(null,null,"Small tips for guides are appreciated."),
+ cash:"Cash only — cards barely work; bring small notes.",
+ dontTip:false,alert:"",
+ note:"Cash is everything here; even small tips are meaningful."},
+{code:"JM",name:"Jamaica",region:"Central America",cur:"JMD",sym:"J$",
+ r:C(10,15,"10–15%; a service charge is often added — check."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(10,15,"10–15%."),
+ u:C(10,15,"10–15% for guides."),
+ cash:"Cash (Jamaican or US dollars) for tips.",
+ dontTip:false,alert:"",
+ note:"Resorts often add the charge; tip excursion staff directly in cash."},
+{code:"BS",name:"Bahamas",region:"Central America",cur:"BSD",sym:"B$",
+ r:C(15,15,"15% is usually added to the bill."),
+ x:C(15,15,"About 15%."),
+ h:C(null,null,"A small amount per night for housekeeping."),
+ b:C(15,15,"15% is usually included."),
+ u:C(15,15,"About 15% for guides."),
+ cash:"Cash (Bahamian or US dollars) for tips.",
+ dontTip:false,alert:"",
+ note:"15% is the number to remember in the Bahamas."},
+/* ---- Oceania ---- */
+{code:"AU",name:"Australia",region:"Oceania",cur:"AUD",sym:"A$",
+ r:C(10,10,"About 10% is a generous, appreciated gesture — not required."),
+ x:C(null,null,"Round up the fare."),
+ h:C(null,null,"Not expected; a small tip for exceptional service."),
+ b:C(null,null,"Not expected."),
+ u:C(10,10,"Around 10% for guides."),
+ cash:"Cards are fine, but cash tips reach the person most directly.",
+ dontTip:false,alert:"",
+ note:"Tipping is a bonus here, never an obligation — wages are high."},
+{code:"NZ",name:"New Zealand",region:"Oceania",cur:"NZD",sym:"NZ$",
+ r:C(0,10,"Not expected; up to 10% for truly exceptional service."),
+ x:C(null,null,"Round up the fare."),
+ h:C(0,0,"Not expected."),
+ b:C(0,0,"Not expected."),
+ u:C(null,null,"Not expected; a small tip for a great guide."),
+ cash:"Cards dominate; tipping culture is minimal.",
+ dontTip:false,alert:"",
+ note:"One of the world's lowest-tipping cultures — relax."},
+];
+
+const CATS = ["restaurants","taxis","hotels","bars","tours"];
+const CAT_LABEL = {restaurants:"Restaurants",taxis:"Taxis & rides",hotels:"Hotels",bars:"Bars & cafés",tours:"Tours & guides"};
+const CAT_KEY = {restaurants:"r",taxis:"x",hotels:"h",bars:"b",tours:"u"};
+
+function norm(s){ return String(s==null?"":s).trim().toLowerCase(); }
+
+function getAllCountries(){ return TIP_DB.slice(); }
+
+function findCountry(q){
+  const n = norm(q);
+  if(!n) return null;
+  for(const c of TIP_DB){
+    if(norm(c.code)===n || norm(c.name)===n) return c;
+  }
+  /* try common aliases */
+  const ALIAS = {"usa":"US","uk":"GB","england":"GB","u.s.":"US","u.s.a.":"US","uae":"AE","korea":"KR",
+    "czech republic":"CZ","viet nam":"VN","türkiye":"TR","turkiye":"TR","russian federation":"RU"};
+  if(ALIAS[n]){ const c=TIP_DB.find(x=>x.code===ALIAS[n]); return c||null; }
+  return null;
+}
+
+function searchCountries(q, limit){
+  const n = norm(q);
+  limit = limit||12;
+  if(!n) return TIP_DB.slice(0, limit);
+  const starts=[], contains=[];
+  for(const c of TIP_DB){
+    const nm = norm(c.name);
+    if(nm.indexOf(n)===0 || norm(c.code)===n) starts.push(c);
+    else if(nm.indexOf(n)>0) contains.push(c);
+  }
+  return starts.concat(contains).slice(0, limit);
+}
+
+function categoryTip(country, cat){
+  if(!country || CATS.indexOf(cat)<0) return null;
+  return country[CAT_KEY[cat]] || null;
+}
+
+function fmtMoney(v, sym){
+  const r = Math.round(v*100)/100;
+  return sym + (Number.isInteger(r) ? r.toString() : r.toFixed(2));
+}
+
+function calcTip(amount, pct){
+  amount = Number(amount); pct = Number(pct);
+  if(!isFinite(amount) || amount<0) amount = 0;
+  if(!isFinite(pct) || pct<0) pct = 0;
+  const tip = Math.round(amount*pct)/100;
+  const total = Math.round((amount+tip)*100)/100;
+  return { amount: Math.round(amount*100)/100, pct: pct, tip: tip, total: total };
+}
+
+/* mode: "pre" = tip on pre-tax subtotal, "post" = tip on post-tax total */
+function calcBill(opts){
+  opts = opts||{};
+  const amount = Math.max(0, Number(opts.amount)||0);
+  const taxPct = Math.max(0, Number(opts.taxPct)||0);
+  const country = findCountry(opts.country);
+  if(!country) return { error:"Unknown country — pick a country from the list.", amount:amount };
+  const cat = CATS.indexOf(opts.category)>=0 ? opts.category : "restaurants";
+  const tip = categoryTip(country, cat);
+  const mode = opts.mode==="post" ? "post" : "pre";
+  const taxAmt = Math.round(amount*taxPct)/100;
+  const base = mode==="post" ? Math.round((amount+taxAmt)*100)/100 : amount;
+  let lo=0, hi=0, tipNote="";
+  if(country.dontTip){
+    tipNote = "No tip — tipping is not customary here.";
+  } else if(tip && (tip.lo!=null || tip.hi!=null)){
+    lo = tip.lo==null?tip.hi:tip.lo; hi = tip.hi==null?tip.lo:tip.hi;
+    tipNote = tip.note;
+  } else {
+    tipNote = tip ? tip.note : "Use your judgment.";
+  }
+  const t1 = calcTip(base, lo), t2 = calcTip(base, hi);
+  return {
+    country: country.name, code: country.code, category: CAT_LABEL[cat],
+    sym: country.sym, mode: mode, taxPct: taxPct, taxAmt: Math.round(taxAmt*100)/100,
+    base: Math.round(base*100)/100,
+    tipLo: t1.tip, tipHi: t2.tip, pctLo: lo, pctHi: hi,
+    totalLo: Math.round((base + t1.tip + (mode==="pre"?taxAmt:0))*100)/100,
+    totalHi: Math.round((base + t2.tip + (mode==="pre"?taxAmt:0))*100)/100,
+    dontTip: country.dontTip, alert: country.alert, tipNote: tipNote
+  };
+}
+
+function cashVsCard(code){
+  const c = findCountry(code);
+  if(!c) return null;
+  return { code:c.code, name:c.name, guidance:c.cash, dontTip:c.dontTip, alert:c.alert };
+}
+
+function dontTipList(){
+  return TIP_DB.filter(c=>c.dontTip).map(c=>({code:c.code,name:c.name,alert:c.alert,note:c.note}));
+}
+
+function cheatSheet(codes){
+  const rows=[];
+  const seen={};
+  for(const q of (codes||[])){
+    const c = findCountry(q);
+    if(!c || seen[c.code]) continue;
+    seen[c.code]=1;
+    const cell = k => {
+      const t = categoryTip(c,k);
+      if(!t) return "—";
+      if(c.dontTip) return "No tip";
+      if(t.lo==null && t.hi==null) return "See note";
+      const a = t.lo==null?t.hi:t.lo, b = t.hi==null?t.lo:t.hi;
+      return a===b ? a+"%" : a+"–"+b+"%";
+    };
+    rows.push({ code:c.code, name:c.name, sym:c.sym,
+      restaurants:cell("restaurants"), taxis:cell("taxis"), hotels:cell("hotels"),
+      bars:cell("bars"), tours:cell("tours"),
+      dontTip:c.dontTip, note:c.note });
+  }
+  return rows;
+}
+
+function regions(){
+  const out=[], seen={};
+  for(const c of TIP_DB){ if(!seen[c.region]){ seen[c.region]=1; out.push(c.region); } }
+  return out;
+}
+
+function countriesByRegion(r){
+  const n = norm(r);
+  return TIP_DB.filter(c=>norm(c.region)===n);
+}
+
+function tipSummary(c){
+  if(!c) return "";
+  if(c.dontTip) return c.alert;
+  const parts=[];
+  for(const cat of CATS){
+    const t = categoryTip(c,cat);
+    if(!t) continue;
+    let s;
+    if(t.lo==null && t.hi==null) s = "see note";
+    else { const a=t.lo==null?t.hi:t.lo, b=t.hi==null?t.lo:t.hi; s = (a===b?a:a+"–"+b)+"%"; }
+    parts.push(CAT_LABEL[cat]+": "+s);
+  }
+  return parts.join(" · ");
+}
+
+/* export for Node tests */
+if (typeof module !== "undefined" && module.exports){
+  module.exports = { TIP_DB: TIP_DB, CATS: CATS, CAT_LABEL: CAT_LABEL,
+    getAllCountries:getAllCountries, findCountry:findCountry, searchCountries:searchCountries,
+    categoryTip:categoryTip, fmtMoney:fmtMoney, calcTip:calcTip, calcBill:calcBill,
+    cashVsCard:cashVsCard, dontTipList:dontTipList, cheatSheet:cheatSheet,
+    regions:regions, countriesByRegion:countriesByRegion, tipSummary:tipSummary };
+}
+
+</script>
+
+<!-- ================= UI WIRING (non-lib) ================= -->
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var esc = function(s){ return String(s==null?"":s).replace(/[&<>"']/g, function(m){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]; }); };
+
+  var countries = getAllCountries();
+
+  /* ---- datalist + selects ---- */
+  var dl = $("country-list");
+  var billCountry = $("bill-country");
+  countries.forEach(function(c){
+    var o = document.createElement("option"); o.value = c.name; dl.appendChild(o);
+    var s = document.createElement("option"); s.value = c.code; s.textContent = c.name; billCountry.appendChild(s);
+  });
+  billCountry.value = "US";
+
+  function pctText(t, dontTip){
+    if(dontTip) return "No tip";
+    if(!t) return "—";
+    if(t.lo==null && t.hi==null) return "Custom";
+    var a = t.lo==null?t.hi:t.lo, b = t.hi==null?t.lo:t.hi;
+    return a===b ? a+"%" : a+"–"+b+"%";
+  }
+
+  /* ---- etiquette card ---- */
+  function renderCard(c){
+    var card = $("etiquette-card");
+    var alertHtml = c.dontTip
+      ? '<div class="rounded-xl border border-red-400/50 p-4 mb-5" style="background:rgba(248,113,113,.10)"><p class="font-bold text-red-300">⛔ '+esc(c.alert)+'</p></div>'
+      : (c.alert ? '<div class="rounded-xl border border-amber-400/50 p-4 mb-5" style="background:rgba(251,191,36,.08)"><p class="text-amber-200 text-sm font-semibold">'+esc(c.alert)+'</p></div>' : '');
+    var cats = CATS.map(function(cat){
+      var t = categoryTip(c, cat);
+      return '<div class="rounded-xl border border-white/10 p-4 card-hover" style="background:rgba(15,30,46,.55)">'
+        + '<div class="flex items-baseline justify-between gap-2 mb-1"><span class="font-semibold text-slate-100 text-sm">'+esc(CAT_LABEL[cat])+'</span>'
+        + '<span class="font-display text-xl font-extrabold '+(c.dontTip?'text-red-300':'text-amber-300')+'">'+esc(pctText(t, c.dontTip))+'</span></div>'
+        + '<p class="text-xs text-slate-400 leading-relaxed">'+esc(t?t.note:"")+'</p></div>';
+    }).join("");
+    card.innerHTML =
+      alertHtml
+      + '<div class="flex flex-wrap items-start justify-between gap-3 mb-1">'
+      + '<div><h3 class="font-display text-3xl font-extrabold text-slate-50">'+esc(c.name)+'</h3>'
+      + '<p class="text-xs uppercase tracking-[0.16em] text-teal-300 mt-1">'+esc(c.region)+' · '+esc(c.cur)+'</p></div>'
+      + '<div class="stamp rounded-xl px-4 py-2 text-center"><div class="text-[10px] uppercase tracking-widest text-slate-400">Quick norm</div>'
+      + '<div class="font-display text-lg font-bold text-amber-300">'+esc(tipSummary(c).split(" · ")[0]||"See below")+'</div></div></div>'
+      + '<div class="grid sm:grid-cols-2 gap-3 my-5">'+cats+'</div>'
+      + '<div class="rounded-xl border border-teal-300/30 p-4 mb-4" style="background:rgba(45,212,191,.07)">'
+      + '<p class="text-xs uppercase tracking-[0.14em] text-teal-300 font-bold mb-1">💵 Cash vs card</p>'
+      + '<p class="text-sm text-slate-300">'+esc(c.cash)+'</p></div>'
+      + '<p class="text-sm text-slate-400 italic border-l-2 border-amber-300/60 pl-3">'+esc(c.note)+'</p>'
+      + '<p class="text-[11px] text-slate-500 mt-3">Guidance baked in from public knowledge — customs drift by city and venue. Verify locally.</p>';
+  }
+
+  /* ---- search ---- */
+  var searchInput = $("country-search"), resultsBox = $("search-results");
+  function doSearch(){
+    var q = searchInput.value;
+    var hits = searchCountries(q, 8);
+    resultsBox.innerHTML = hits.map(function(c){
+      return '<button data-code="'+esc(c.code)+'" class="sr-btn px-3 py-1.5 rounded-full text-xs font-semibold border border-amber-300/40 text-amber-200 hover:bg-amber-300 hover:text-[#0f1e2e] transition">'
+        + esc(c.name) + (c.dontTip?' ⛔':'') + '</button>';
+    }).join("");
+    Array.prototype.forEach.call(resultsBox.querySelectorAll(".sr-btn"), function(b){
+      b.addEventListener("click", function(){
+        var c = findCountry(b.getAttribute("data-code"));
+        if(c) renderCard(c);
+      });
+    });
+    if(hits.length===1 && q.trim().length>2) renderCard(hits[0]);
+  }
+  searchInput.addEventListener("input", doSearch);
+  searchInput.addEventListener("change", function(){
+    var c = findCountry(searchInput.value);
+    if(c) renderCard(c);
+  });
+
+  /* ---- region chips ---- */
+  var regionBox = $("region-chips"), regionList = $("region-list");
+  regions().forEach(function(r){
+    var b = document.createElement("button");
+    b.textContent = r;
+    b.className = "px-3 py-1.5 rounded-full text-xs font-semibold border border-teal-300/40 text-teal-200 hover:bg-teal-300 hover:text-[#0f1e2e] transition";
+    b.addEventListener("click", function(){
+      regionList.innerHTML = countriesByRegion(r).map(function(c){
+        return '<button data-code="'+esc(c.code)+'" class="rg-btn text-left px-3 py-2 rounded-lg text-xs font-semibold border border-white/10 text-slate-200 hover:border-amber-300 hover:text-amber-200 transition">'
+          + esc(c.name) + (c.dontTip?' ⛔':'') + '</button>';
+      }).join("");
+      Array.prototype.forEach.call(regionList.querySelectorAll(".rg-btn"), function(x){
+        x.addEventListener("click", function(){
+          var c = findCountry(x.getAttribute("data-code"));
+          if(c) renderCard(c);
+          document.getElementById("etiquette-card").scrollIntoView({behavior:"smooth", block:"nearest"});
+        });
+      });
+    });
+    regionBox.appendChild(b);
+  });
+
+  /* ---- calculator ---- */
+  var mode = "pre";
+  $("mode-pre").addEventListener("click", function(){ mode="pre"; $("mode-pre").classList.add("tab-active"); $("mode-post").classList.remove("tab-active"); });
+  $("mode-post").addEventListener("click", function(){ mode="post"; $("mode-post").classList.add("tab-active"); $("mode-pre").classList.remove("tab-active"); });
+  $("calc-btn").addEventListener("click", function(){
+    var res = calcBill({ amount: $("bill-amount").value, taxPct: $("tax-pct").value,
+      country: $("bill-country").value, category: $("bill-category").value, mode: mode });
+    var box = $("tip-result");
+    box.classList.remove("hidden");
+    if(res.error){
+      box.innerHTML = '<p class="text-red-300 font-semibold">'+esc(res.error)+'</p>';
+      return;
+    }
+    var tipRange = res.dontTip ? "No tip"
+      : (res.pctLo===res.pctHi ? fmtMoney(res.tipLo,res.sym)+" ("+res.pctLo+"%)"
+        : fmtMoney(res.tipLo,res.sym)+" – "+fmtMoney(res.tipHi,res.sym)+" ("+res.pctLo+"–"+res.pctHi+"%)");
+    var totalRange = res.dontTip ? fmtMoney(res.totalLo,res.sym)
+      : fmtMoney(res.totalLo,res.sym)+" – "+fmtMoney(res.totalHi,res.sym);
+    box.innerHTML =
+      (res.dontTip ? '<p class="font-bold text-red-300 mb-2">⛔ '+esc(res.alert)+'</p>' : '')
+      + '<div class="grid sm:grid-cols-3 gap-4 text-center">'
+      + '<div><div class="text-[11px] uppercase tracking-widest text-slate-400">Bill ('+(res.mode==="pre"?"pre-tax":"post-tax")+')</div><div class="font-display text-2xl font-bold text-slate-100">'+esc(fmtMoney(res.base,res.sym))+'</div></div>'
+      + '<div><div class="text-[11px] uppercase tracking-widest text-slate-400">Suggested tip · '+esc(res.category)+'</div><div class="font-display text-2xl font-bold text-amber-300">'+esc(tipRange)+'</div></div>'
+      + '<div><div class="text-[11px] uppercase tracking-widest text-slate-400">Total to pay</div><div class="font-display text-2xl font-bold text-teal-300">'+esc(totalRange)+'</div></div></div>'
+      + (res.taxPct>0 ? '<p class="text-xs text-slate-400 mt-2 text-center">Tax '+esc(String(res.taxPct))+'% = '+esc(fmtMoney(res.taxAmt,res.sym))+(res.mode==="pre"?" (added to total, tip calculated before tax)":" (included in tipped base)")+'</p>' : '')
+      + '<p class="text-sm text-slate-300 mt-3 border-l-2 border-amber-300/60 pl-3">'+esc(res.tipNote)+'</p>'
+      + '<p class="text-[11px] text-slate-500 mt-2">'+esc(res.country)+' · Guidance only — verify locally.</p>';
+  });
+
+  /* ---- don't-tip list ---- */
+  $("dont-tip-list").innerHTML = dontTipList().map(function(c){
+    return '<button data-code="'+esc(c.code)+'" class="dt-btn text-left rounded-xl border border-red-400/40 p-4 card-hover" style="background:rgba(248,113,113,.06)">'
+      + '<p class="font-bold text-red-300">⛔ '+esc(c.name)+'</p>'
+      + '<p class="text-xs text-slate-300 mt-1 leading-relaxed">'+esc(c.alert)+'</p></button>';
+  }).join("");
+  Array.prototype.forEach.call(document.querySelectorAll(".dt-btn"), function(b){
+    b.addEventListener("click", function(){
+      var c = findCountry(b.getAttribute("data-code"));
+      if(c){ renderCard(c); document.getElementById("etiquette-card").scrollIntoView({behavior:"smooth"}); }
+    });
+  });
+
+  /* ---- cheat sheet ---- */
+  var itinerary = [];
+  var cheatBox = $("cheat-countries");
+  function renderItinerary(){
+    cheatBox.innerHTML = itinerary.map(function(code){
+      var c = findCountry(code);
+      return '<span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border border-amber-300/40 text-amber-200">'
+        + esc(c.name) + '<button data-code="'+esc(code)+'" class="rm-btn text-red-300 font-bold">✕</button></span>';
+    }).join("") || '<span class="text-xs text-slate-500">No countries added yet.</span>';
+    Array.prototype.forEach.call(cheatBox.querySelectorAll(".rm-btn"), function(b){
+      b.addEventListener("click", function(){
+        itinerary = itinerary.filter(function(x){ return x!==b.getAttribute("data-code"); });
+        renderItinerary();
+      });
+    });
+  }
+  function addCheat(){
+    var c = findCountry($("cheat-search").value);
+    if(!c){ return; }
+    if(itinerary.indexOf(c.code)<0 && itinerary.length<12){ itinerary.push(c.code); }
+    $("cheat-search").value = "";
+    renderItinerary();
+  }
+  $("cheat-add-btn").addEventListener("click", addCheat);
+  $("cheat-search").addEventListener("keydown", function(e){ if(e.key==="Enter"){ e.preventDefault(); addCheat(); } });
+  $("cheat-generate-btn").addEventListener("click", function(){
+    var rows = cheatSheet(itinerary);
+    var wrap = $("cheat-sheet-wrap"), tbl = $("cheat-sheet-table");
+    if(!rows.length){
+      wrap.classList.remove("hidden");
+      tbl.innerHTML = '<p class="text-slate-400 text-sm">Add at least one country above, then generate your cheat sheet.</p>';
+      return;
+    }
+    var head = ["Country","Restaurants","Taxis","Hotels","Bars","Tours"].map(function(h){
+      return '<th class="px-3 py-2 text-left text-[11px] uppercase tracking-wider border-b-2 border-amber-300/50 whitespace-nowrap">'+h+'</th>';
+    }).join("");
+    var body = rows.map(function(r){
+      return '<tr class="border-b border-white/10">'
+        + '<td class="px-3 py-2 font-bold whitespace-nowrap">'+esc(r.name)+(r.dontTip?' <span class="text-red-400">⛔</span>':'')+'</td>'
+        + [r.restaurants,r.taxis,r.hotels,r.bars,r.tours].map(function(v){
+            return '<td class="px-3 py-2 text-sm whitespace-nowrap">'+esc(v)+'</td>';
+          }).join("")
+        + '</tr>';
+    }).join("");
+    var notes = rows.map(function(r){
+      return '<li class="text-xs mb-1"><strong>'+esc(r.name)+':</strong> '+esc(r.note)+'</li>';
+    }).join("");
+    tbl.innerHTML =
+      '<div class="flex items-center justify-between mb-3"><h3 class="font-display text-2xl font-extrabold"><span style="color:#fbbf24">Tip</span><span style="color:#2dd4bf">Atlas</span> <span class="text-slate-500 text-lg font-semibold">· Trip cheat sheet</span></h3>'
+      + '<span class="text-[11px] text-slate-500">'+esc(String(rows.length))+' countries</span></div>'
+      + '<table class="w-full text-slate-200"><thead><tr>'+head+'</tr></thead><tbody>'+body+'</tbody></table>'
+      + '<ul class="mt-4 text-slate-400">'+notes+'</ul>'
+      + '<p class="text-[11px] text-slate-500 mt-3">Guidance only — customs drift by city and venue. Verify locally.</p>';
+    wrap.classList.remove("hidden");
+    wrap.scrollIntoView({behavior:"smooth", block:"nearest"});
+  });
+  $("cheat-print-btn").addEventListener("click", function(){
+    if($("cheat-sheet-wrap").classList.contains("hidden")) $("cheat-generate-btn").click();
+    window.print();
+  });
+  renderItinerary();
+})();
+</script>
+</body>
+</html>
